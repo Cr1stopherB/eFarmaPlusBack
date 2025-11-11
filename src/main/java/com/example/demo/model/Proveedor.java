@@ -15,26 +15,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "Proveedor")
+
 public class Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombreProveedor", length = 255, nullable = false)
+    @Column(name = "NOMBRE_PROVEEDOR", length = 255, nullable = false)
     private String nombre;
 
-    @Column(name = "rut", length = 12, nullable = false, unique = true)
+    @Column(name = "RUT", length = 12, nullable = false, unique = true)
     private String rut;
 
-    @Column(name = "contacto", length = 100, nullable = false)
+    @Column(name = "CONTACTO", length = 100, nullable = false)
     private String contacto;
 
-    @Column(name = "telefono", length = 100, nullable = false)
+    @Column(name = "TELEFONO", length = 100, nullable = false)
     private String telefono;
 
-    @Column(name = "email", length = 100, unique = true)
+    @Column(name = "EMAIL", length = 100, unique = true)
     private String email;
 
-    @Column(name = "direccion", length = 255, nullable = false)
+    @Column(name = "DIRECCION", length = 255, nullable = false)
     private String direccion;
 }

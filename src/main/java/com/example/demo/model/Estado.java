@@ -10,16 +10,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// Clase ESTADO de la VENTA
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "Categoria")
-public class Categoria {
+@Table(name = "Estado")
+public class Estado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "NOMBRE_CATEGORIA", length = 100, nullable = false)
-    private String nombreCategoria;
+    @Column(name = "NOMBRE", length = 50, unique = true, nullable = false)
+    private String nombre; // 'Pendiente', 'Enviado', 'Entregado'
 }

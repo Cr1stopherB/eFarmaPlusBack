@@ -6,20 +6,28 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "Categoria")
-public class Categoria {
+@Table(name = "Comuna")
+public class Comuna {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "NOMBRE_CATEGORIA", length = 100, nullable = false)
-    private String nombreCategoria;
+    @Column(name = "NOMBRE", length = 100, unique = true, nullable = false)
+    private String nombre;
+
+    // FK hacia tabla REGION
+    @ManyToOne
+    @JoinColumn(name = "ID_REGION", nullable = false)
+    private Region region;
 }

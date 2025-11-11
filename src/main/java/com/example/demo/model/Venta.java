@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -19,8 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Pedido")
-public class Pedido {
+@Table(name = "Venta")
+public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id; // ID_PEDIDO INT
@@ -33,14 +32,12 @@ public class Pedido {
     // ID_ESTADO INT fk ESTADO_PEDIDO
     @ManyToOne 
     @JoinColumn(name = "ID_ESTADO", nullable = false)
-    private EstadoPedido estado; 
-
-    // Atributos de la tabla
+    private Estado estado; 
     
     @Column(name = "FECHA_CREACION", nullable = false)
     private LocalDateTime fechaCreacion; 
 
-    @Column(name = "Total", nullable = false)
+    @Column(name = "TOTAL", nullable = false)
     private Double total; 
 
     @Column(name = "DIRECCION_ENVIO", length = 255)

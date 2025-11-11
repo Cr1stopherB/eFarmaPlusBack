@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "usuarios")
+@Table(name = "Usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,28 +24,26 @@ public class Usuario {
 
     // Relación ManyToOne con ROL (ID_ROL FK)
     @ManyToOne
-    @JoinColumn(name = "ID_ROL", nullable = false) 
+    @JoinColumn(name = "ID_ROL", nullable = false)
     private Rol rol;
-    
-    // Atributos de la tabla
-    @Column(name = "nombreRol", length = 50, nullable = false)
-    private String nombre;
-    
-    @Column(name = "Rut", length = 15)
-    private String rut;
-    
-    @Column(name = "Contacto", length = 255)
-    private String contacto;
-    
-    @Column(name = "Direccion", length = 255)
-    private String direccion;
 
-    @Column(name = "Email", unique = true, nullable = false, length = 255)
+    @ManyToOne
+    @JoinColumn(name = "ID_DIRECCION", nullable = false)
+    private Direccion direccion;
+    
+    @Column(name = "RUT", length = 15)
+    private String rut;
+
+    @Column(name = "CONTACTO", length = 255)
+    private String contacto;
+
+    @Column(name = "EMAIL", unique = true, nullable = false, length = 255)
     private String email;
 
-    @Column(name = "Contrasena", nullable = false, length = 255)
+    @Column(name = "CONTRASEÑA", nullable = false, length = 255)
     private String contrasenaHash;
 
-    @Column(name = "Telefono", length = 20)
+    @Column(name = "TELEFONO", length = 20)
     private String telefono;
+    
 }
