@@ -1,7 +1,5 @@
 package com.example.demo.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,15 +14,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Detalle_Provedor")
-public class DetalleProveedor {
+@Table(name = "EstadoPedido")
+public class EstadoPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "precio", nullable = false)
-    private Double precio;
-
-    @Column(name = "fechaUltimaCompra", nullable = false)
-    private LocalDateTime fechaUltimaCompra;
+    @Column(name = "nombre", length = 50, unique = true, nullable = false)
+    private String nombre; // 'Pendiente', 'Enviado', 'Entregado'
 }

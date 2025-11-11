@@ -30,6 +30,7 @@ public class Usuario {
     // Atributos de la tabla
     @Column(name = "nombreRol", length = 50, nullable = false)
     private String nombre;
+    
     @Column(name = "Rut", length = 15)
     private String rut;
     
