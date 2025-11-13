@@ -14,7 +14,7 @@ import jakarta.transaction.Transactional;
 public class UsuarioService {
     
     @Autowired
-    private UsuarioRepository usuarioRepository; // Inyección del repositorio
+    private UsuarioRepository usuarioRepository;
 
     public List<Usuario> findAll(){
         return usuarioRepository.findAll();
@@ -24,14 +24,6 @@ public class UsuarioService {
     public Usuario findById(Integer id){
         return usuarioRepository.findById(id).orElse(null);
     }
-    
-    /**
-     * Busca un usuario por su Email (Método personalizado si se necesita).
-     * Requiere que el repositorio UsuarioRepository tenga definido: Usuario findByEmail(String email);
-     */
-    // public Usuario findByEmail(String email) {
-    //     return usuarioRepository.findByEmail(email);
-    // }
 
     @SuppressWarnings("null")
     public Usuario save(Usuario usuario) {

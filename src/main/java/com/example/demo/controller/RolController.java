@@ -19,6 +19,7 @@ public class RolController {
     @Autowired
     private RolService rolService;
 
+    // Obtener todos los roles
     @GetMapping
     public ResponseEntity<List<Rol>> getAllRol(){
         List<Rol> roles = rolService.findAll();
@@ -28,6 +29,7 @@ public class RolController {
         return ResponseEntity.ok(roles); 
     }
 
+    // Obtener roles segun ID
     @GetMapping("/{id}")
     public ResponseEntity<Rol> getRolById(@PathVariable Integer id){
         Rol rol = rolService.findById(id);
