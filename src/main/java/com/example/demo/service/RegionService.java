@@ -27,4 +27,8 @@ public class RegionService {
     public Region save(Region region) {
         return regionRepository.save(region);
     }
+
+    public void deleteById(Integer id) {
+        regionRepository.deleteById(id);
+    }
 }

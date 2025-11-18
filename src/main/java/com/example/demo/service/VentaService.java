@@ -27,4 +27,8 @@ public class VentaService {
     public Venta save(Venta venta) {
         return ventaRepository.save(venta);
     }
+
+    public void deleteById(Integer id) {
+        ventaRepository.deleteById(id);
+    }
 }

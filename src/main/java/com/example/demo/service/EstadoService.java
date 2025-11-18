@@ -27,4 +27,8 @@ public class EstadoService {
     public Estado save(Estado estado) {
         return estadoRepository.save(estado);
     }
+
+    public void deleteById(Integer id) {
+        estadoRepository.deleteById(id);
+    }
 }

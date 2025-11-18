@@ -27,4 +27,8 @@ public class ProveedorService {
     public Proveedor save(Proveedor proveedor) {
         return proveedorRepository.save(proveedor);
     }
+
+    public void deleteById(Integer id) {
+        proveedorRepository.deleteById(id);
+    }
 }

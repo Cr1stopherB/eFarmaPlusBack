@@ -47,13 +47,13 @@ public class LaboratorioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Laboratorio> updateMarca(@PathVariable Integer id, @RequestBody Laboratorio laboratorio) {
-        Laboratorio.setId(id);
+        laboratorio.setId(id);
         return ResponseEntity.ok(laboratorioService.save(laboratorio));
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<Laboratorio> patchMarca(@PathVariable Integer id, @RequestBody Laboratorio laboratorio) {
-        Laboratorio.setId(id);
+        laboratorio.setId(id);
         return ResponseEntity.ok(laboratorioService.save(laboratorio));
     }
 

@@ -29,11 +29,15 @@ public class TipoFabricacionService {
     }
 
     public TipoFabricacion findByNombre(String nombre) {
-    for (TipoFabricacion tipoFabricacion : repository.findAll()) {
-        if (tipoFabricacion.getNombre().equalsIgnoreCase(nombre)) {
-            return tipoFabricacion;
+        for (TipoFabricacion tipoFabricacion : repository.findAll()) {
+            if (tipoFabricacion.getNombre().equalsIgnoreCase(nombre)) {
+                return tipoFabricacion;
+            }
         }
+        return null;
     }
-    return null;
-}
+
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
+    }
 }

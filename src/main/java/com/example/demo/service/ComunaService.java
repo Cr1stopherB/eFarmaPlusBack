@@ -27,4 +27,8 @@ public class ComunaService {
     public Comuna save(Comuna comuna) {
         return comunaRepository.save(comuna);
     }
-}   
+
+    public void deleteById(Integer id) {
+        comunaRepository.deleteById(id);
+    }
+}

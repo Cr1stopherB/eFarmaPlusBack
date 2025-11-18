@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.model.MetodoEnvio;
-import com.example.demo.model.MetodoPago;
 import com.example.demo.repository.MetodoEnvioRepository;
 import jakarta.transaction.Transactional;
 
@@ -36,5 +35,9 @@ public class MetodoEnvioService {
             }
         }
         return null;
+    }
+
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 }

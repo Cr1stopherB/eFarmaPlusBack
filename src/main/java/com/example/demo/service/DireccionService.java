@@ -27,4 +27,8 @@ public class DireccionService {
     public Direccion save(Direccion direccion) {
         return direccionRepository.save(direccion);
     }
+
+    public void deleteById(Integer id) {
+        direccionRepository.deleteById(id);
+    }
 }

@@ -27,4 +27,8 @@ public class ImagenesService {
     public Imagenes save(Imagenes imagen) {
         return imagenesRepository.save(imagen);
     }
+
+    public void deleteById(Integer id) {
+        imagenesRepository.deleteById(id);
+    }
 }
