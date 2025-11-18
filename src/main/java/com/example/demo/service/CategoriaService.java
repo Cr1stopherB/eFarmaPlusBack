@@ -14,6 +14,10 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
+    public void deleteById(Integer id) {
+        categoriaRepository.deleteById(id);
+    }
+
     public List<Categoria> findAll() {
         return categoriaRepository.findAll();
     }
@@ -27,4 +31,13 @@ public class CategoriaService {
     public Categoria save(Categoria categoria) {
         return categoriaRepository.save(categoria);
     }
+
+    public Categoria findByNombreCategoria(String nombre) {
+    for (Categoria c : categoriaRepository.findAll()) {
+        if (c.getNombreCategoria().equalsIgnoreCase(nombre)) {
+            return c;
+        }
+    }
+    return null;
+}
 }

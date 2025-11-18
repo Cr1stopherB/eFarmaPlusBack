@@ -27,4 +27,17 @@ public class MetodoPagoService {
     public MetodoPago save(MetodoPago metodo) {
         return repository.save(metodo);
     }
+
+    public void deleteById(Integer id) {
+    repository.deleteById(id);
+}
+
+    public MetodoPago findByNombre(String nombre) {
+        for (MetodoPago metodoPago : repository.findAll()) {
+            if (metodoPago.getNombre().equalsIgnoreCase(nombre)) {
+                return metodoPago;
+            }
+        }
+        return null;
+    }
 }

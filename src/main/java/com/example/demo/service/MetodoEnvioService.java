@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.model.MetodoEnvio;
+import com.example.demo.model.MetodoPago;
 import com.example.demo.repository.MetodoEnvioRepository;
 import jakarta.transaction.Transactional;
 
@@ -26,5 +27,14 @@ public class MetodoEnvioService {
     @SuppressWarnings("null")
     public MetodoEnvio save(MetodoEnvio metodo) {
         return repository.save(metodo);
+    }
+
+    public MetodoEnvio findByNombre(String nombre) {
+        for (MetodoEnvio metodoEnvio : repository.findAll()) {
+            if (metodoEnvio.getNombre().equalsIgnoreCase(nombre)) {
+                return metodoEnvio;
+            }
+        }
+        return null;
     }
 }

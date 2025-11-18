@@ -14,6 +14,10 @@ public class LaboratorioService {
     @Autowired
     private LaboratorioRepository LaboratorioRepository;
 
+    public void deleteById(Integer id) {
+        LaboratorioRepository.deleteById(id);
+    }
+
     public List<Laboratorio> findAll() {
         return LaboratorioRepository.findAll();
     }

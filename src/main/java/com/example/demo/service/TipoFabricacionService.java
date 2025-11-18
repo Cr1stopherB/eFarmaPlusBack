@@ -27,4 +27,13 @@ public class TipoFabricacionService {
     public TipoFabricacion save(TipoFabricacion tipo) {
         return repository.save(tipo);
     }
+
+    public TipoFabricacion findByNombre(String nombre) {
+    for (TipoFabricacion tipoFabricacion : repository.findAll()) {
+        if (tipoFabricacion.getNombre().equalsIgnoreCase(nombre)) {
+            return tipoFabricacion;
+        }
+    }
+    return null;
+}
 }
