@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -35,11 +36,12 @@ public class VentaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Venta> getById(@PathVariable Integer id) {
-        Venta v = ventaService.findById(id);
-        if (v == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(v);
+        Venta venta = ventaService.findById(id);
+        if (venta == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(venta);
     }
 
+    // Get de fecha actual de creacion con LocalDate
     @PostMapping
     public ResponseEntity<Venta> create(@RequestBody Venta venta) {
         venta.setFechaCreacion(LocalDateTime.now());

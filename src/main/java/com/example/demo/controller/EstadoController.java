@@ -34,9 +34,9 @@ public class EstadoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Estado> getById(@PathVariable Integer id) {
-        Estado e = estadoService.findById(id);
-        if (e == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(e);
+        Estado estado = estadoService.findById(id);
+        if (estado == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(estado);
     }
 
     @PostMapping

@@ -35,10 +35,10 @@ public class ComunaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Comuna> getById(@PathVariable Integer id) {
-        Comuna c = comunaService.findById(id);
-        if (c == null)
+        Comuna comuna = comunaService.findById(id);
+        if (comuna == null)
             return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(c);
+        return ResponseEntity.ok(comuna);
     }
 
     @PostMapping

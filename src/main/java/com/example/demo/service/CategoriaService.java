@@ -33,11 +33,11 @@ public class CategoriaService {
     }
 
     public Categoria findByNombreCategoria(String nombre) {
-    for (Categoria c : categoriaRepository.findAll()) {
-        if (c.getNombreCategoria().equalsIgnoreCase(nombre)) {
-            return c;
+        for (Categoria categoria : categoriaRepository.findAll()) {
+            if (categoria.getNombreCategoria().equalsIgnoreCase(nombre)) {
+                return categoria;
+            }
         }
+        return null;
     }
-    return null;
-}
 }
