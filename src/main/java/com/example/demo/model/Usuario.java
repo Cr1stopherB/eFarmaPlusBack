@@ -37,8 +37,8 @@ public class Usuario {
     @Column(name = "CONTACTO", length = 255)
     private String contacto;
 
-    @Column(name = "EMAIL", unique = true, nullable = false, length = 255)
-    private String email;
+    @Column(name = "CORREO", unique = true, nullable = false, length = 255)
+    private String correo;
 
     @Column(name = "CONTRASEÑA", nullable = false, length = 255)
     private String contrasenaHash;
