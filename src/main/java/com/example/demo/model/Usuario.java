@@ -40,7 +40,7 @@ public class Usuario {
     @Column(name = "CORREO", unique = true, nullable = false, length = 255)
     private String correo;
 
-    @Column(name = "CONTRASEÑA", nullable = false, length = 255)
+    @Column(name = "CONTRASENA", nullable = false, length = 255)
     private String contrasenaHash;
 
     @Column(name = "TELEFONO", length = 20)
