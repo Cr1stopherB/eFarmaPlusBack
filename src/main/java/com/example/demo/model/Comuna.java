@@ -28,6 +28,6 @@ public class Comuna {
 
     // FK hacia tabla REGION
     @ManyToOne
-    @JoinColumn(name = "ID_REGION", nullable = false)
+    @JoinColumn(name = "id_region", nullable = false)
     private Region region;
 }

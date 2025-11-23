@@ -28,14 +28,16 @@ public class DireccionController {
     @GetMapping
     public ResponseEntity<List<Direccion>> getAll() {
         List<Direccion> lista = direccionService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Direccion> getById(@PathVariable Integer id) {
         Direccion d = direccionService.findById(id);
-        if (d == null) return ResponseEntity.notFound().build();
+        if (d == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(d);
     }
 
