@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.MetodoEnvio;
 import com.example.demo.service.MetodoEnvioService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,21 +28,24 @@ public class MetodoEnvioController {
     @GetMapping
     public ResponseEntity<List<MetodoEnvio>> getAll() {
         List<MetodoEnvio> lista = metodoEnvioService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<MetodoEnvio> getById(@PathVariable Integer id) {
         MetodoEnvio m = metodoEnvioService.findById(id);
-        if (m == null) return ResponseEntity.notFound().build();
+        if (m == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(m);
     }
 
     @GetMapping("/nombre/{nombre}")
     public ResponseEntity<MetodoEnvio> getByNombre(@PathVariable String nombre) {
         MetodoEnvio m = metodoEnvioService.findByNombre(nombre);
-        if (m == null) return ResponseEntity.notFound().build();
+        if (m == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(m);
     }
 

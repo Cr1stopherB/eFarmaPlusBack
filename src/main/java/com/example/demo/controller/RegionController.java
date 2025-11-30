@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.Region;
 import com.example.demo.service.RegionService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,14 +28,16 @@ public class RegionController {
     @GetMapping
     public ResponseEntity<List<Region>> getAll() {
         List<Region> lista = regionService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Region> getById(@PathVariable Integer id) {
         Region r = regionService.findById(id);
-        if (r == null) return ResponseEntity.notFound().build();
+        if (r == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(r);
     }
 

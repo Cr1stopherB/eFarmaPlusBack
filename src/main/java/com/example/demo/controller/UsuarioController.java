@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.Usuario;
 import com.example.demo.service.UsuarioService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,14 +28,16 @@ public class UsuarioController {
     @GetMapping
     public ResponseEntity<List<Usuario>> getAll() {
         List<Usuario> lista = usuarioService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getById(@PathVariable Integer id) {
         Usuario u = usuarioService.findById(id);
-        if (u == null) return ResponseEntity.notFound().build();
+        if (u == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(u);
     }
 

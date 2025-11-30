@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.Proveedor;
 import com.example.demo.service.ProveedorService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/api/proveedores")
 public class ProveedorController {
@@ -29,14 +28,16 @@ public class ProveedorController {
     @GetMapping
     public ResponseEntity<List<Proveedor>> getAll() {
         List<Proveedor> lista = proveedorService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Proveedor> getById(@PathVariable Integer id) {
         Proveedor p = proveedorService.findById(id);
-        if (p == null) return ResponseEntity.notFound().build();
+        if (p == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(p);
     }
 

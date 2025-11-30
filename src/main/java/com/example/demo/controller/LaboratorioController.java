@@ -5,7 +5,7 @@ import com.example.demo.service.LaboratorioService;
 
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,14 +29,16 @@ public class LaboratorioController {
     @GetMapping
     public ResponseEntity<List<Laboratorio>> getAllMarcas() {
         List<Laboratorio> marcas = laboratorioService.findAll();
-        if (marcas.isEmpty()) return ResponseEntity.noContent().build();
+        if (marcas.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(marcas);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Laboratorio> getMarcaById(@PathVariable Integer id) {
         Laboratorio laboratorio = laboratorioService.findById(id);
-        if (laboratorio == null) return ResponseEntity.notFound().build();
+        if (laboratorio == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(laboratorio);
     }
 

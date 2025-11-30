@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.Imagenes;
 import com.example.demo.service.ImagenesService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,14 +28,16 @@ public class ImagenesController {
     @GetMapping
     public ResponseEntity<List<Imagenes>> getAll() {
         List<Imagenes> lista = imagenesService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Imagenes> getById(@PathVariable Integer id) {
         Imagenes i = imagenesService.findById(id);
-        if (i == null) return ResponseEntity.notFound().build();
+        if (i == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(i);
     }
 

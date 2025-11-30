@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.Producto;
 import com.example.demo.service.ProductoService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,14 +28,16 @@ public class ProductoController {
     @GetMapping
     public ResponseEntity<List<Producto>> getAll() {
         List<Producto> lista = productoService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Producto> getById(@PathVariable Integer id) {
         Producto p = productoService.findById(id);
-        if (p == null) return ResponseEntity.notFound().build();
+        if (p == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(p);
     }
 

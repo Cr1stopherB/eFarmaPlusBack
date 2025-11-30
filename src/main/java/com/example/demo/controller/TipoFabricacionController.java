@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.TipoFabricacion;
 import com.example.demo.service.TipoFabricacionService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

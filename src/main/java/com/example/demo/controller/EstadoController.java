@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.Estado;
 import com.example.demo.service.EstadoService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,14 +28,16 @@ public class EstadoController {
     @GetMapping
     public ResponseEntity<List<Estado>> getAll() {
         List<Estado> lista = estadoService.findAll();
-        if (lista.isEmpty()) return ResponseEntity.noContent().build();
+        if (lista.isEmpty())
+            return ResponseEntity.noContent().build();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Estado> getById(@PathVariable Integer id) {
         Estado estado = estadoService.findById(id);
-        if (estado == null) return ResponseEntity.notFound().build();
+        if (estado == null)
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(estado);
     }
 
