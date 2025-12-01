@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -55,7 +56,7 @@ public class Producto {
     @Column(name = "REQUIERE_RECETA", nullable = false)
     private Boolean requiereReceta;
 
-    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("producto")
     private List<Imagenes> imagenes;
 }
