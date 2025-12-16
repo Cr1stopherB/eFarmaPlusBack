@@ -30,7 +30,7 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "ID_DIRECCION", nullable = false)
     private Direccion direccion;
-    
+
     @Column(name = "RUT", length = 15)
     private String rut;
 
@@ -45,5 +45,5 @@ public class Usuario {
 
     @Column(name = "TELEFONO", length = 20)
     private String telefono;
-    
+
 }

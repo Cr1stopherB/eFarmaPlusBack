@@ -15,12 +15,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "roles")
-
 public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; // PK 
-    
+    private Integer id; // PK
+
     @Column(name = "NOMBRE_ROL", length = 50, nullable = false)
     private String nombre;
 }
