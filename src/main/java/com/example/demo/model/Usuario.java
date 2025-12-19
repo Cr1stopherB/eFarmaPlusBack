@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Data
 @AllArgsConstructor
@@ -40,6 +41,7 @@ public class Usuario {
     @Column(name = "CORREO", unique = true, nullable = false, length = 255)
     private String correo;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(name = "CONTRASENA", nullable = false, length = 255)
     private String contrasenaHash;
 
